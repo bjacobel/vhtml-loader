@@ -1,0 +1,43 @@
+{
+  "name": "@bjacobel/vhtml-loader",
+  "author": "Brian Jacobel <brian@bjacobel.com> (https://bjacobel.com)",
+  "version": "0.0.1",
+  "description": "webpack loader for https://github.com/developit/vhtml",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint . && prettier -c ./*",
+    "build": "tsc -p .",
+    "clean": "rm -rf dist",
+    "prebuild": "yarn --silent run clean",
+    "prepublish": "yarn --silent run build"
+  },
+  "repository": {
+    "url": "git@github.com:bjacobel/vhtml-loader.git",
+    "type": "git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-react-jsx": "^7.7.0",
+    "loader-utils": "^1.2.3",
+    "memory-fs": "^0.5.0",
+    "schema-utils": "^2.5.0",
+    "vhtml": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/loader-utils": "^1.1.3",
+    "@types/memory-fs": "^0.3.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "eslint": "^6.5.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.2"
+  },
+  "peerDependencies": {
+    "webpack": "^4.41.2"
+  }
+}
