@@ -13,7 +13,7 @@ describe('vhtml-loader', () => {
     expect(output).toMatchSnapshot();
   });
 
-  fit('handles a file with jsx loops', async () => {
+  it('handles a file with jsx loops', async () => {
     const output = await compiler('loops.html.jsx');
 
     expect(output).toMatchSnapshot();

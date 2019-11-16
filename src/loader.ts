@@ -20,6 +20,8 @@ export default async function(
   const callback = this.async()!;
   const options = getOptions(this) || {};
 
+  this.cacheable && this.cacheable();
+
   validateOptions(schema, options, {
     name: 'vhtml-loader',
   });
@@ -30,12 +32,14 @@ export default async function(
     ],
   });
 
-  const moduleContent = `
-    module.exports = '${eval(`
-      const h = require('vhtml');
-      ${babelResult!.code}
-    `)}';
-  `;
+  const vhtmlSrc = await new Promise((resolve, reject) =>
+    this.loadModule('vhtml', (err, src) => (err ? reject(err) : resolve(src))),
+  );
+
+  const moduleContent = `module.exports = '${Function(`
+    ${vhtmlSrc}
+    ${babelResult!.code}
+  `)()}';`;
 
   callback(null, moduleContent);
 }

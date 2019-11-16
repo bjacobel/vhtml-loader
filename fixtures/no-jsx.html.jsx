@@ -1,4 +1,4 @@
-module.exports = (
+export default (
   <html>
     <head>
       <title>no-jsx fixture</title>

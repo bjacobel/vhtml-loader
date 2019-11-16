@@ -1,6 +1,6 @@
 const foo = 'an example';
 
-module.exports = (
+export default (
   <html>
     <head>
       <title>interpolation fixture</title>

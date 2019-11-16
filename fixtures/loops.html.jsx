@@ -1,6 +1,6 @@
 const planets = ['mars', 'mercury', 'neptune', 'saturn'];
 
-module.exports = (
+export default (
   <html>
     <head>
       <title>looping fixture</title>
