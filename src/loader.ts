@@ -29,6 +29,7 @@ export default async function(
   const babelResult = await transformAsync(source, {
     plugins: [
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
+      '@babel/plugin-transform-modules-commonjs',
     ],
   });
 
@@ -36,10 +37,15 @@ export default async function(
     this.loadModule('vhtml', (err, src) => (err ? reject(err) : resolve(src))),
   );
 
-  const moduleContent = `module.exports = '${Function(`
+  const templateSrc = `
+    const exports = {};
     ${vhtmlSrc}
+    const h = global.vhtml;
     ${babelResult!.code}
-  `)()}';`;
+    return exports.default;
+  `;
+
+  const moduleContent = `module.exports = '${new Function(templateSrc)()}';`;
 
   callback(null, moduleContent);
 }

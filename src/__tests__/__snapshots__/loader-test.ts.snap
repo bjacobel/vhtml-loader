@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`vhtml-loader handles a file with jsx interpolation 1`] = `""`;
+exports[`vhtml-loader handles a file with jsx interpolation 1`] = `"module.exports = '<html><head><title>interpolation fixture</title></head><body><h1>an example</h1></body></html>';"`;
 
-exports[`vhtml-loader handles a file with jsx loops 1`] = `""`;
+exports[`vhtml-loader handles a file with jsx loops 1`] = `"module.exports = '<html><head><title>looping fixture</title></head><body><p>some of my favorite planets are:</p><ul><li key=\\"0\\">mars</li><li key=\\"1\\">mercury</li><li key=\\"2\\">neptune</li><li key=\\"3\\">saturn</li></ul></body></html>';"`;
 
 exports[`vhtml-loader handles a file with no jsx 1`] = `"module.exports = '<html><head><title>no-jsx fixture</title></head><body><h1>an example</h1></body></html>';"`;
