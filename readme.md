@@ -8,14 +8,12 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
 
 ## Usage
 
-1. Install: `yarn add --dev vhtml-loader`
+1. Install: `yarn add --dev @bjacobel/vhtml-loader`
 2. Install peer deps. If you're using a standard-ish React setup you probably already have them, but if not:
 
    ```
    yarn add --dev \
      @babel-core \
-     @babel/plugin-transform-modules-commonjs \
-     @babel/plugin-transform-react-jsx \
      webpack
    ```
 
@@ -30,7 +28,7 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
        {
          test: /\.html\.jsx$/,
          use: {
-           loader: 'vhtml-loader',
+           loader: '@bjacobel/vhtml-loader',
            options: {
              // described below
            }
@@ -65,7 +63,7 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
    plugins: [
      // other plugins,
      new HtmlWebpackPlugin({
-       template: '!!vhtml-loader!./src/templates/index.html.jsx',
+       template: '!!@bjacobel/vhtml-loader!./src/templates/index.html.jsx',
      }),
    ];
    ```
