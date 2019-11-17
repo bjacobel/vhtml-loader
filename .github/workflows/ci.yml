@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v1
       - name: Install
-        uses: CultureHQ/actions-yarn
+        uses: CultureHQ/actions-yarn@master
         with:
           args: install --frozen-lockfile
       - name: Lint
-        uses: CultureHQ/actions-yarn
+        uses: CultureHQ/actions-yarn@master
         with:
           args: lint
       - name: Test
-        uses: CultureHQ/actions-yarn
+        uses: CultureHQ/actions-yarn@master
         with:
           args: test
