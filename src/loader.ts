@@ -3,6 +3,7 @@ import validateOptions from 'schema-utils';
 import { JSONSchema7 } from 'json-schema';
 import { loader as WebpackLoader } from 'webpack';
 import { transformAsync } from '@babel/core';
+import dedent from 'dedent';
 
 const schema: JSONSchema7 = {
   type: 'object',
@@ -35,33 +36,24 @@ export default async function(
     plugins: [
       require.resolve('./discardImports'),
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
-      '@babel/plugin-transform-modules-commonjs',
+      ['@babel/plugin-transform-modules-commonjs', { strictMode: false }],
     ],
   });
 
-  const vhtmlSrc = await new Promise((resolve, reject) =>
-    this.loadModule('vhtml', (err, src) => (err ? reject(err) : resolve(src))),
+  // const doctype = options.doctype ? '<!DOCTYPE html>' : '';
+
+  callback(
+    null,
+    dedent`
+      var h = __non_webpack_require__(${JSON.stringify(
+        require.resolve('vhtml'),
+      )});
+      module.exports = function(data) {
+        with(data) {
+          ${babelResult!.code!}
+          return exports.default || module.exports;
+        }
+      }
+    `,
   );
-
-  // yeah I'll admit I don't fully understand the monster I've created here
-  const templateSrc = `
-    const module = { exports: {} };
-    const { exports } = module;
-    ${vhtmlSrc}
-    const h = module.exports;
-    
-    ${babelResult!.code}
-    if (typeof module.exports === 'string') {
-      return module.exports;
-    }
-    return exports.default;
-  `;
-
-  const doctype = options.doctype ? '<!DOCTYPE html>' : '';
-
-  const moduleContent = `module.exports = '${doctype}${new Function(
-    templateSrc,
-  )()}';`;
-
-  callback(null, moduleContent);
 }

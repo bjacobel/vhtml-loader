@@ -1,41 +1,61 @@
 import compiler from '../utils/memFsCompiler';
 
-const parseOutput = (output: string): string =>
-  (output.match(/module\.exports = '(.*)';/) ?? ['no module.export found'])[1];
+const fixtures = (f: string) => `../../fixtures/${f}.html.jsx`;
 
 describe('vhtml-loader', () => {
-  it('handles a file with no jsx', async () => {
-    const output = await compiler('no-jsx.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
+  it('renders the module source', async () => {
+    const { source } = await compiler(fixtures('simple/no-jsx'));
+    expect(source).toMatchSnapshot();
   });
 
-  it('handles a file with jsx interpolation', async () => {
-    const output = await compiler('interpolation.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
+  describe('simple jsx compilation', () => {
+    it('handles a file with no jsx', async () => {
+      const { html } = await compiler(fixtures('simple/no-jsx'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with jsx interpolation', async () => {
+      const { html } = await compiler(fixtures('simple/interpolation'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with jsx loops', async () => {
+      const { html } = await compiler(fixtures('simple/loops'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with jsx functions', async () => {
+      const { html } = await compiler(fixtures('simple/function'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with a props object spread', async () => {
+      const { html } = await compiler(fixtures('simple/spread'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with a commonjs export', async () => {
+      const { html } = await compiler(fixtures('simple/commonjs'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles a file with react imported in scope', async () => {
+      const { html } = await compiler(fixtures('simple/react-scope'));
+      expect(html).toMatchSnapshot();
+    });
   });
 
-  it('handles a file with jsx loops', async () => {
-    const output = await compiler('loops.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
-  });
+  describe('htmlwebpackplugin magic', () => {
+    it('can access htmlWebpackPlugin.options from the template', async () => {
+      const { html } = await compiler(fixtures('htmlwebpackplugin/options'), {
+        title: 'test',
+      });
+      expect(html).toMatchSnapshot();
+    });
 
-  it('handles a file with jsx functions', async () => {
-    const output = await compiler('function.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
-  });
-
-  it('handles a file with a props object spread', async () => {
-    const output = await compiler('spread.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
-  });
-
-  it('handles a file with a commonjs export', async () => {
-    const output = await compiler('commonjs.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
-  });
-
-  it('handles a file with react imported in scope', async () => {
-    const output = await compiler('react-scope.html.jsx');
-    expect(parseOutput(output)).toMatchSnapshot();
+    it('templates out files included by htmlwebpackplugin', async () => {
+      const { html } = await compiler(fixtures('htmlwebpackplugin/files'));
+      expect(html).toMatchSnapshot();
+    });
   });
 });
