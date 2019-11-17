@@ -2,7 +2,11 @@
 
 Webpack loader that uses [`vhtml`](https://github.com/developit/vhtml) to render JSX into HTML without a VDOM.
 
+## Motivation
+
 Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-plugin/) but hate using EJS? This loader is for you. Now you can write your templates in the same way you write the rest of your React app: JSX.
+
+## Usage
 
 1. Install: `yarn add --dev vhtml-loader`
 2. Install peer deps. If you're using a standard-ish React setup you probably already have them, but if not:
@@ -57,3 +61,10 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
      }),
    ];
    ```
+
+## Limitations
+
+- If using ESM, your templates must have a default export.
+- If using CommonJS, your templates must be assigned to `module.exports`.
+- Don't try to do imports inside your templates. Shit will blow up.
+- The set of syntax you can use inside your templates is limited to whatever works in the Node version you're using.

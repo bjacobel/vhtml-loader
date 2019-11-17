@@ -1,7 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`vhtml-loader handles a file with jsx interpolation 1`] = `"module.exports = '<html><head><title>interpolation fixture</title></head><body><h1>an example</h1></body></html>';"`;
+exports[`vhtml-loader handles a file with a commonjs export 1`] = `
+<html>
+  <head>
+    <title>
+      commonjs fixture
+    </title>
+  </head>
+  <body>
+    <h1>
+      an example
+    </h1>
+  </body>
+</html>
+`;
 
-exports[`vhtml-loader handles a file with jsx loops 1`] = `"module.exports = '<html><head><title>looping fixture</title></head><body><p>some of my favorite planets are:</p><ul><li key=\\"0\\">mars</li><li key=\\"1\\">mercury</li><li key=\\"2\\">neptune</li><li key=\\"3\\">saturn</li></ul></body></html>';"`;
+exports[`vhtml-loader handles a file with a props object spread 1`] = `
+<html>
+  <head>
+    <title>
+      props spread fixture
+    </title>
+  </head>
+  <body>
+    <div classname="big"
+         aria-live="false"
+    >
+    </div>
+  </body>
+</html>
+`;
 
-exports[`vhtml-loader handles a file with no jsx 1`] = `"module.exports = '<html><head><title>no-jsx fixture</title></head><body><h1>an example</h1></body></html>';"`;
+exports[`vhtml-loader handles a file with jsx functions 1`] = `
+<html>
+  <head>
+    <title>
+      looping fixture
+    </title>
+  </head>
+  <body>
+    <p>
+      some of my favorite planets are:
+    </p>
+    <ul>
+      <div key="0">
+        <h2>
+          mars
+        </h2>
+        <p>
+          it&apos;s planet #4 from the sun
+        </p>
+        <p>
+          according to my research it is
+        </p>
+        <ul>
+          <li>
+            dusty
+          </li>
+          <li>
+            red
+          </li>
+        </ul>
+      </div>
+      <div key="1">
+        <h2>
+          mercury
+        </h2>
+        <p>
+          it&apos;s planet #1 from the sun
+        </p>
+        <p>
+          according to my research it is
+        </p>
+        <ul>
+          <li>
+            rocky
+          </li>
+          <li>
+            hot
+          </li>
+          <li>
+            tiny
+          </li>
+        </ul>
+      </div>
+      <div key="2">
+        <h2>
+          neptune
+        </h2>
+        <p>
+          it&apos;s planet #7 from the sun
+        </p>
+        <p>
+          according to my research it is
+        </p>
+        <ul>
+          <li>
+            big
+          </li>
+          <li>
+            blue
+          </li>
+          <li>
+            gassy
+          </li>
+        </ul>
+      </div>
+      <div key="3">
+        <h2>
+          saturn
+        </h2>
+        <p>
+          it&apos;s planet #9 from the sun
+        </p>
+        <p>
+          according to my research it is
+        </p>
+        <ul>
+          <li>
+            ringed
+          </li>
+        </ul>
+      </div>
+    </ul>
+  </body>
+</html>
+`;
+
+exports[`vhtml-loader handles a file with jsx interpolation 1`] = `
+<html>
+  <head>
+    <title>
+      interpolation fixture
+    </title>
+  </head>
+  <body>
+    <h1>
+      an example
+    </h1>
+  </body>
+</html>
+`;
+
+exports[`vhtml-loader handles a file with jsx loops 1`] = `
+<html>
+  <head>
+    <title>
+      looping fixture
+    </title>
+  </head>
+  <body>
+    <p>
+      some of my favorite planets are:
+    </p>
+    <ul>
+      <li key="0">
+        mars
+      </li>
+      <li key="1">
+        mercury
+      </li>
+      <li key="2">
+        neptune
+      </li>
+      <li key="3">
+        saturn
+      </li>
+    </ul>
+  </body>
+</html>
+`;
+
+exports[`vhtml-loader handles a file with no jsx 1`] = `
+<html>
+  <head>
+    <title>
+      no-jsx fixture
+    </title>
+  </head>
+  <body>
+    <h1>
+      an example
+    </h1>
+  </body>
+</html>
+`;

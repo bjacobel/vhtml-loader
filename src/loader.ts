@@ -37,11 +37,17 @@ export default async function(
     this.loadModule('vhtml', (err, src) => (err ? reject(err) : resolve(src))),
   );
 
+  // yeah I'll admit I don't fully understand the monster I've created here
   const templateSrc = `
-    const exports = {};
+    const module = { exports: {} };
+    const { exports } = module;
     ${vhtmlSrc}
-    const h = global.vhtml;
+    const h = module.exports;
+    
     ${babelResult!.code}
+    if (typeof module.exports === 'string') {
+      return module.exports;
+    }
     return exports.default;
   `;
 

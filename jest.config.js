@@ -3,6 +3,7 @@ module.exports = {
   coverageDirectory: '<rootDir>/reports/coverage',
   moduleDirectories: ['<rootDir>/node_modules'],
   moduleFileExtensions: ['ts', 'js', 'json'],
+  snapshotSerializers: ['jest-serializer-html'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
