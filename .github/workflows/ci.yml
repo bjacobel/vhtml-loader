@@ -3,22 +3,36 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-
+  lint-test-build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Install
-        uses: CultureHQ/actions-yarn@master
+
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v1
         with:
-          args: install --frozen-lockfile
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install
+        uses: CultureHQ/actions-yarn@v1.0.1
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          args: install --frozen-lockfile --ignore-scripts
+
       - name: Lint
-        uses: CultureHQ/actions-yarn@master
+        uses: CultureHQ/actions-yarn@v1.0.1
         with:
           args: lint
+
       - name: Test
-        uses: CultureHQ/actions-yarn@master
+        uses: CultureHQ/actions-yarn@v1.0.1
         with:
           args: test
+
+      - name: Build
+        uses: CultureHQ/actions-yarn@v1.0.1
+        with:
+          args: build --noEmit
