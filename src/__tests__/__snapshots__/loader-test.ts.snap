@@ -11,6 +11,17 @@ exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.optio
 </html>
 `;
 
+exports[`vhtml-loader htmlwebpackplugin magic escapes content written inside jsx functions correctly 1`] = `
+<!DOCTYPE html>
+<html>
+  <body>
+    <script type="module">
+
+    </script>
+  </body>
+</html>
+`;
+
 exports[`vhtml-loader htmlwebpackplugin magic templates out files included by htmlwebpackplugin 1`] = `
 <!DOCTYPE html>
 <html>

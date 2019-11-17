@@ -66,5 +66,10 @@ describe('vhtml-loader', () => {
       const { html } = await compiler(fixtures('htmlwebpackplugin/files'));
       expect(html).toMatchSnapshot();
     });
+
+    fit('escapes content written inside jsx functions correctly', async () => {
+      const { html } = await compiler(fixtures('htmlwebpackplugin/escaping'));
+      expect(html).toMatchSnapshot();
+    });
   });
 });
