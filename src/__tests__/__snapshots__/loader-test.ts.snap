@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.options from the template 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -11,6 +12,7 @@ exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.optio
 `;
 
 exports[`vhtml-loader htmlwebpackplugin magic templates out files included by htmlwebpackplugin 1`] = `
+<!DOCTYPE html>
 <html>
   <body>
     <script type="text/javacript"
@@ -33,12 +35,28 @@ exports.default = void 0;
 var _default = h(\\"html\\", null, h(\\"head\\", null, h(\\"title\\", null, \\"no-jsx fixture\\")), h(\\"body\\", null, h(\\"h1\\", null, \\"an example\\")));
 
 exports.default = _default;
-        return exports.default || module.exports;
+        return \\"<!DOCTYPE html>\\" + (exports.default || module.exports);
       }
     }"
 `;
 
+exports[`vhtml-loader simple jsx compilation doesn't prepend doctype if { doctype: false } 1`] = `
+<html>
+  <head>
+    <title>
+      no-jsx fixture
+    </title>
+  </head>
+  <body>
+    <h1>
+      an example
+    </h1>
+  </body>
+</html>
+`;
+
 exports[`vhtml-loader simple jsx compilation handles a file with a commonjs export 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -54,6 +72,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with a commonjs expo
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with a props object spread 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -70,6 +89,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with a props object 
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx functions 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -166,6 +186,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with jsx functions 1
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx interpolation 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -181,6 +202,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with jsx interpolati
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx loops 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -210,6 +232,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with jsx loops 1`] =
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with no jsx 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -225,6 +248,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with no jsx 1`] = `
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with react imported in scope 1`] = `
+<!DOCTYPE html>
 <html>
   <body>
     <h1>

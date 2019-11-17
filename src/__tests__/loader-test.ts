@@ -43,6 +43,15 @@ describe('vhtml-loader', () => {
       const { html } = await compiler(fixtures('simple/react-scope'));
       expect(html).toMatchSnapshot();
     });
+
+    it("doesn't prepend doctype if { doctype: false }", async () => {
+      const { html } = await compiler(
+        fixtures('simple/no-jsx'),
+        {},
+        { doctype: false },
+      );
+      expect(html).toMatchSnapshot();
+    });
   });
 
   describe('htmlwebpackplugin magic', () => {

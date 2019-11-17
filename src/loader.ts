@@ -40,7 +40,7 @@ export default async function(
     ],
   });
 
-  // const doctype = options.doctype ? '<!DOCTYPE html>' : '';
+  const doctype = options.doctype ? '<!DOCTYPE html>' : '';
 
   callback(
     null,
@@ -52,7 +52,7 @@ export default async function(
       module.exports = function(data) {
         with(data) {
           ${babelResult!.code!}
-          return exports.default || module.exports;
+          return "${doctype}" + (exports.default || module.exports);
         }
       }
     `,
