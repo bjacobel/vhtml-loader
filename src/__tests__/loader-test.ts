@@ -33,4 +33,9 @@ describe('vhtml-loader', () => {
     const output = await compiler('commonjs.html.jsx');
     expect(parseOutput(output)).toMatchSnapshot();
   });
+
+  it('handles a file with react imported in scope', async () => {
+    const output = await compiler('react-scope.html.jsx');
+    expect(parseOutput(output)).toMatchSnapshot();
+  });
 });

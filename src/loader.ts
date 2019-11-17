@@ -7,10 +7,15 @@ import { transformAsync } from '@babel/core';
 const schema: JSONSchema7 = {
   type: 'object',
   properties: {
-    test: {
-      type: 'string',
+    doctype: {
+      type: 'boolean',
+      default: true,
     },
   },
+};
+
+const defaultOptions = {
+  doctype: true,
 };
 
 export default async function(
@@ -18,7 +23,7 @@ export default async function(
   source: string,
 ) {
   const callback = this.async()!;
-  const options = getOptions(this) || {};
+  const options = Object.assign({}, defaultOptions, getOptions(this));
 
   this.cacheable && this.cacheable();
 
@@ -28,6 +33,7 @@ export default async function(
 
   const babelResult = await transformAsync(source, {
     plugins: [
+      require.resolve('./discardImports'),
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
       '@babel/plugin-transform-modules-commonjs',
     ],
@@ -51,7 +57,11 @@ export default async function(
     return exports.default;
   `;
 
-  const moduleContent = `module.exports = '${new Function(templateSrc)()}';`;
+  const doctype = options.doctype ? '<!DOCTYPE html>' : '';
+
+  const moduleContent = `module.exports = '${doctype}${new Function(
+    templateSrc,
+  )()}';`;
 
   callback(null, moduleContent);
 }

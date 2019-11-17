@@ -32,12 +32,20 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
          use: {
            loader: 'vhtml-loader',
            options: {
-             @TODO
+             // described below
            }
          },
        },
      ],
    },
+   ```
+
+   The available options are:
+
+   ```js
+   options: {
+     doctype: true, // True by default. Set false if you will add <!DOCTYPE html> some other way.
+   }
    ```
 
 5. If you're using this loader with `html-webpack-plugin` to provide a template, configure that plugin:
@@ -66,5 +74,5 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
 
 - If using ESM, your templates must have a default export.
 - If using CommonJS, your templates must be assigned to `module.exports`.
-- Don't try to do imports inside your templates. Shit will blow up.
+- Don't try to do imports inside your templates. Currently the loader strips them all until I can figure out how to support them.
 - The set of syntax you can use inside your templates is limited to whatever works in the Node version you're using.

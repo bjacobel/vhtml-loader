@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`vhtml-loader handles a file with a commonjs export 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -16,6 +17,7 @@ exports[`vhtml-loader handles a file with a commonjs export 1`] = `
 `;
 
 exports[`vhtml-loader handles a file with a props object spread 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -32,6 +34,7 @@ exports[`vhtml-loader handles a file with a props object spread 1`] = `
 `;
 
 exports[`vhtml-loader handles a file with jsx functions 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -128,6 +131,7 @@ exports[`vhtml-loader handles a file with jsx functions 1`] = `
 `;
 
 exports[`vhtml-loader handles a file with jsx interpolation 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -143,6 +147,7 @@ exports[`vhtml-loader handles a file with jsx interpolation 1`] = `
 `;
 
 exports[`vhtml-loader handles a file with jsx loops 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -172,6 +177,7 @@ exports[`vhtml-loader handles a file with jsx loops 1`] = `
 `;
 
 exports[`vhtml-loader handles a file with no jsx 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -181,6 +187,17 @@ exports[`vhtml-loader handles a file with no jsx 1`] = `
   <body>
     <h1>
       an example
+    </h1>
+  </body>
+</html>
+`;
+
+exports[`vhtml-loader handles a file with react imported in scope 1`] = `
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>
+      2 + 2 is 4
     </h1>
   </body>
 </html>
