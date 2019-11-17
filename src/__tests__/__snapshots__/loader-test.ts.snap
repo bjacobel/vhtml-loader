@@ -22,7 +22,7 @@ exports[`vhtml-loader htmlwebpackplugin magic templates out files included by ht
 `;
 
 exports[`vhtml-loader renders the module source 1`] = `
-"var h = __non_webpack_require__(\\"/Users/bjacobel/code/personal/@bjacobel/vhtml-loader/node_modules/vhtml/dist/vhtml.js\\");
+"var h = __non_webpack_require__(\\"../../node_modules/vhtml/dist/vhtml.js\\");
     module.exports = function(data) {
       with(data) {
         Object.defineProperty(exports, \\"__esModule\\", {

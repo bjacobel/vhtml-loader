@@ -1,4 +1,4 @@
-import { getOptions } from 'loader-utils';
+import { getOptions, stringifyRequest } from 'loader-utils';
 import validateOptions from 'schema-utils';
 import { JSONSchema7 } from 'json-schema';
 import { loader as WebpackLoader } from 'webpack';
@@ -45,7 +45,8 @@ export default async function(
   callback(
     null,
     dedent`
-      var h = __non_webpack_require__(${JSON.stringify(
+      var h = __non_webpack_require__(${stringifyRequest(
+        this,
         require.resolve('vhtml'),
       )});
       module.exports = function(data) {
