@@ -11,6 +11,7 @@
     "prebuild": "yarn --silent run clean",
     "prepublish": "yarn --silent run build"
   },
+  "main": "dist/loader.js",
   "repository": {
     "url": "git@github.com:bjacobel/vhtml-loader.git",
     "type": "git"

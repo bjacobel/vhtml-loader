@@ -29,7 +29,7 @@ export default async function(
   this.cacheable && this.cacheable();
 
   validateOptions(schema, options, {
-    name: 'vhtml-loader',
+    name: '@bjacobel/vhtml-loader',
   });
 
   const babelResult = await transformAsync(source, {
