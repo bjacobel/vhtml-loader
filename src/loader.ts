@@ -51,7 +51,7 @@ export default async function(
     this,
     // see https://github.com/webpack/loader-utils/issues/115 for use of this._compiler here
     // html-webpack-plugin author says this can't happen in webpack 4 but it CAN
-    path.relative(this._compiler.context, require.resolve('vhtml')),
+    path.relative(this._compiler.context, require.resolve('@bjacobel/vhtml')),
   );
 
   callback(

@@ -25,7 +25,7 @@ exports[`vhtml-loader htmlwebpackplugin magic templates out files included by ht
 
 exports[`vhtml-loader renders the module source 1`] = `
 "\\"use strict\\";
-    var h = __non_webpack_require__(\\"../../node_modules/vhtml/dist/vhtml.js\\");
+    var h = __non_webpack_require__(\\"../../node_modules/@bjacobel/vhtml/dist/vhtml.js\\");
     module.exports = function(data) {
       var htmlWebpackPlugin = data.htmlWebpackPlugin;
       Object.defineProperty(exports, \\"__esModule\\", {
@@ -62,6 +62,9 @@ exports[`vhtml-loader simple jsx compilation escapes content written inside jsx 
     <p>
       vhtml &quot;will&quot; escape &apos;bad stuff&apos; &amp; that is good &amp; correct
     </p>
+    <p>
+      this content "will" 'not' be escaped & that's ok
+    </p>
   </body>
 </html>
 `;
@@ -91,7 +94,7 @@ exports[`vhtml-loader simple jsx compilation handles a file with a props object 
     </title>
   </head>
   <body>
-    <div classname="big"
+    <div class="big"
          aria-live="false"
     >
     </div>

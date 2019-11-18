@@ -23,7 +23,7 @@
     "dedent": "^0.7.0",
     "loader-utils": "^1.2.3",
     "schema-utils": "^2.5.0",
-    "vhtml": "^2.1.0"
+    "@bjacobel/vhtml": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
