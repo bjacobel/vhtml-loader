@@ -52,6 +52,11 @@ describe('vhtml-loader', () => {
       );
       expect(html).toMatchSnapshot();
     });
+
+    it('escapes content written inside jsx functions correctly', async () => {
+      const { html } = await compiler(fixtures('simple/escaping'));
+      expect(html).toMatchSnapshot();
+    });
   });
 
   describe('htmlwebpackplugin magic', () => {
@@ -64,11 +69,6 @@ describe('vhtml-loader', () => {
 
     it('templates out files included by htmlwebpackplugin', async () => {
       const { html } = await compiler(fixtures('htmlwebpackplugin/files'));
-      expect(html).toMatchSnapshot();
-    });
-
-    fit('escapes content written inside jsx functions correctly', async () => {
-      const { html } = await compiler(fixtures('htmlwebpackplugin/escaping'));
       expect(html).toMatchSnapshot();
     });
   });

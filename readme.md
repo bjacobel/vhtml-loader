@@ -74,3 +74,4 @@ Do you like [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-
 - If using CommonJS, your templates must be assigned to `module.exports`.
 - Don't try to do imports inside your templates. Currently the loader strips them all until I can figure out how to support them.
 - The set of syntax you can use inside your templates is limited to whatever works in the Node version you're using.
+- If you plan on dynamically writing script tags, or doing anything else that requires _**not**_ escaping HTML special characters (ie, quotes), you must use `dangerouslySetInnerHTML`. See [`escaping.html.jsx`](./fixtures/simple/escaping.html.jsx) for an example.

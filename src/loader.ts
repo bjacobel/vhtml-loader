@@ -37,7 +37,12 @@ export default async function(
     plugins: [
       require.resolve('./discardImports'),
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
-      ['@babel/plugin-transform-modules-commonjs', { strictMode: false }],
+      [
+        '@babel/plugin-transform-modules-commonjs',
+        {
+          strictMode: false, // don't worry, we'll insert this into the exported module later
+        },
+      ],
     ],
   });
 
@@ -52,12 +57,12 @@ export default async function(
   callback(
     null,
     dedent`
+      "use strict";
       var h = __non_webpack_require__(${vhtmlSrc});
       module.exports = function(data) {
-        with(data) {
-          ${babelResult!.code!}
-          return "${doctype}" + (exports.default || module.exports);
-        }
+        var htmlWebpackPlugin = data.htmlWebpackPlugin;
+        ${babelResult!.code!}
+        return "${doctype}" + (exports.default || module.exports);
       }
     `,
   );

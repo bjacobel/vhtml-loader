@@ -11,17 +11,6 @@ exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.optio
 </html>
 `;
 
-exports[`vhtml-loader htmlwebpackplugin magic escapes content written inside jsx functions correctly 1`] = `
-<!DOCTYPE html>
-<html>
-  <body>
-    <script type="module">
-
-    </script>
-  </body>
-</html>
-`;
-
 exports[`vhtml-loader htmlwebpackplugin magic templates out files included by htmlwebpackplugin 1`] = `
 <!DOCTYPE html>
 <html>
@@ -35,10 +24,11 @@ exports[`vhtml-loader htmlwebpackplugin magic templates out files included by ht
 `;
 
 exports[`vhtml-loader renders the module source 1`] = `
-"var h = __non_webpack_require__(\\"../../node_modules/vhtml/dist/vhtml.js\\");
+"\\"use strict\\";
+    var h = __non_webpack_require__(\\"../../node_modules/vhtml/dist/vhtml.js\\");
     module.exports = function(data) {
-      with(data) {
-        Object.defineProperty(exports, \\"__esModule\\", {
+      var htmlWebpackPlugin = data.htmlWebpackPlugin;
+      Object.defineProperty(exports, \\"__esModule\\", {
 value: true
 });
 exports.default = void 0;
@@ -46,8 +36,7 @@ exports.default = void 0;
 var _default = h(\\"html\\", null, h(\\"head\\", null, h(\\"title\\", null, \\"no-jsx fixture\\")), h(\\"body\\", null, h(\\"h1\\", null, \\"an example\\")));
 
 exports.default = _default;
-        return \\"<!DOCTYPE html>\\" + (exports.default || module.exports);
-      }
+      return \\"<!DOCTYPE html>\\" + (exports.default || module.exports);
     }"
 `;
 
@@ -62,6 +51,17 @@ exports[`vhtml-loader simple jsx compilation doesn't prepend doctype if { doctyp
     <h1>
       an example
     </h1>
+  </body>
+</html>
+`;
+
+exports[`vhtml-loader simple jsx compilation escapes content written inside jsx functions correctly 1`] = `
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>
+      vhtml &quot;will&quot; escape &apos;bad stuff&apos; &amp; that is good &amp; correct
+    </p>
   </body>
 </html>
 `;
