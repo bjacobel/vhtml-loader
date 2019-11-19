@@ -53,7 +53,7 @@ exports[`vhtml-loader htmlwebpackplugin magic templates out files included by ht
 
 exports[`vhtml-loader renders the module source 1`] = `
 "\\"use strict\\";
-    var h = __non_webpack_require__(\\"../../node_modules/@bjacobel/vhtml/dist/vhtml.js\\");
+    var h = require(\\"../../node_modules/@bjacobel/vhtml/dist/vhtml.js\\");
     module.exports = function(data) {
       var htmlWebpackPlugin = data.htmlWebpackPlugin;
       Object.defineProperty(exports, \\"__esModule\\", {

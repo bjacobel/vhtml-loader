@@ -4,7 +4,6 @@ import { JSONSchema7 } from 'json-schema';
 import { loader as WebpackLoader } from 'webpack';
 import { transformAsync } from '@babel/core';
 import dedent from 'dedent';
-import path from 'path';
 
 const schema: JSONSchema7 = {
   type: 'object',
@@ -48,18 +47,13 @@ export default async function(
   });
 
   const doctype = options.doctype ? '<!DOCTYPE html>' : '';
-  const vhtmlSrc = stringifyRequest(
-    this,
-    // see https://github.com/webpack/loader-utils/issues/115 for use of this._compiler here
-    // html-webpack-plugin author says this can't happen in webpack 4 but it CAN
-    path.relative(this._compiler.context, require.resolve('@bjacobel/vhtml')),
-  );
+  const vhtmlSrc = stringifyRequest(this, require.resolve('@bjacobel/vhtml'));
 
   callback(
     null,
     dedent`
       "use strict";
-      var h = __non_webpack_require__(${vhtmlSrc});
+      var h = require(${vhtmlSrc});
       module.exports = function(data) {
         var htmlWebpackPlugin = data.htmlWebpackPlugin;
         ${babelResult!.code!}
