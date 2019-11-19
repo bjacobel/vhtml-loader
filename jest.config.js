@@ -2,7 +2,7 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.ts'],
   coverageDirectory: '<rootDir>/reports/coverage',
   moduleDirectories: ['<rootDir>/node_modules'],
-  moduleFileExtensions: ['ts', 'js', 'json'],
+  moduleFileExtensions: ['ts', 'js', 'json', 'jsx'],
   snapshotSerializers: ['jest-serializer-html'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],

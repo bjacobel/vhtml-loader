@@ -11,6 +11,34 @@ exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.optio
 </html>
 `;
 
+exports[`vhtml-loader htmlwebpackplugin magic can handle a very complex case 1`] = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"
+    >
+    <link rel="preconnect"
+          href="https://www.google-analytics.com"
+    >
+    <title>
+      Webpack App
+    </title>
+  </head>
+  <body>
+    <div id="main">
+    </div>
+    <script type="module">
+      var script0 = document.createElement('script');
+          script0.type = 'text/javascript';
+          script0.src = 'bundle.js';
+          document.body.appendChild(script0);
+    </script>
+  </body>
+</html>
+`;
+
 exports[`vhtml-loader htmlwebpackplugin magic templates out files included by htmlwebpackplugin 1`] = `
 <!DOCTYPE html>
 <html>
@@ -38,6 +66,22 @@ var _default = h(\\"html\\", null, h(\\"head\\", null, h(\\"title\\", null, \\"n
 exports.default = _default;
       return \\"<!DOCTYPE html>\\" + (exports.default || module.exports);
     }"
+`;
+
+exports[`vhtml-loader simple jsx compilation does not have unterminated string constant issues 1`] = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      unterminated string constant
+    </title>
+    <p>
+      planes
+trains
+automobiles
+    </p>
+  </head>
+</html>
 `;
 
 exports[`vhtml-loader simple jsx compilation doesn't prepend doctype if { doctype: false } 1`] = `

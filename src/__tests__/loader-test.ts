@@ -57,6 +57,11 @@ describe('vhtml-loader', () => {
       const { html } = await compiler(fixtures('simple/escaping'));
       expect(html).toMatchSnapshot();
     });
+
+    it('does not have unterminated string constant issues', async () => {
+      const { html } = await compiler(fixtures('simple/string-constant'));
+      expect(html).toMatchSnapshot();
+    });
   });
 
   describe('htmlwebpackplugin magic', () => {
@@ -69,6 +74,14 @@ describe('vhtml-loader', () => {
 
     it('templates out files included by htmlwebpackplugin', async () => {
       const { html } = await compiler(fixtures('htmlwebpackplugin/files'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('can handle a very complex case', async () => {
+      // it's just the template from rak, the whole entire reason I built this loader
+      const { html } = await compiler(
+        fixtures('htmlwebpackplugin/kitchensink'),
+      );
       expect(html).toMatchSnapshot();
     });
   });

@@ -36,6 +36,7 @@ export default async function(
   const babelResult = await transformAsync(source, {
     plugins: [
       require.resolve('./discardImports'),
+      require.resolve('./fixNewlines'),
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
       [
         '@babel/plugin-transform-modules-commonjs',
