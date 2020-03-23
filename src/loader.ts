@@ -19,7 +19,7 @@ const defaultOptions = {
   doctype: true,
 };
 
-export default async function(
+export default async function (
   this: WebpackLoader.LoaderContext,
   source: string,
 ) {
