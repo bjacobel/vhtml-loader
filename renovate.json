@@ -6,5 +6,11 @@
   "major": {
     "automerge": false
   },
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^jest"],
+      "groupName": "Jest packages"
+    }
+  ]
 }
