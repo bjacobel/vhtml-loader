@@ -53,7 +53,7 @@ export default async (
 
       const childCompilation = stats
         .toJson()
-        .children?.find((c) => c.name?.startsWith('html-webpack-plugin'));
+        .children?.find((c) => c.name?.startsWith('HtmlWebpackCompiler'));
 
       resolve({
         html,
