@@ -6,6 +6,11 @@ jobs:
   lint-test-build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16"
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -17,22 +22,14 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install
-        uses: CultureHQ/actions-yarn@v1.0.1
+        run: yarn install --frozen-lockfile --ignore-scripts
         if: steps.cache.outputs.cache-hit != 'true'
-        with:
-          args: install --frozen-lockfile --ignore-scripts
 
       - name: Lint
-        uses: CultureHQ/actions-yarn@v1.0.1
-        with:
-          args: lint
+        run: yarn lint
 
       - name: Test
-        uses: CultureHQ/actions-yarn@v1.0.1
-        with:
-          args: test
+        run: yarn test
 
       - name: Build
-        uses: CultureHQ/actions-yarn@v1.0.1
-        with:
-          args: build --noEmit
+        run: yarn build --noEmit
