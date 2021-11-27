@@ -1,9 +1,14 @@
-import { getOptions, stringifyRequest } from 'loader-utils';
-import validateOptions from 'schema-utils';
+// @ts-ignore-error the available loader-utils types depend on webpack 4
+import { stringifyRequest } from 'loader-utils';
+import { validate } from 'schema-utils';
 import { JSONSchema7 } from 'json-schema';
-import { loader as WebpackLoader } from 'webpack';
+import { LoaderContext } from 'webpack';
 import { transformAsync } from '@babel/core';
 import dedent from 'dedent';
+
+interface Options {
+  doctype?: boolean;
+}
 
 const schema: JSONSchema7 = {
   type: 'object',
@@ -19,16 +24,13 @@ const defaultOptions = {
   doctype: true,
 };
 
-export default async function (
-  this: WebpackLoader.LoaderContext,
-  source: string,
-) {
+export default async function (this: LoaderContext<Options>, source: string) {
   const callback = this.async()!;
-  const options = Object.assign({}, defaultOptions, getOptions(this));
+  const options = Object.assign({}, defaultOptions, this.getOptions(schema));
 
   this.cacheable && this.cacheable();
 
-  validateOptions(schema, options, {
+  validate(schema, options, {
     name: '@bjacobel/vhtml-loader',
   });
 

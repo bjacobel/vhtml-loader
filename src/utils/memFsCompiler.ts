@@ -43,22 +43,27 @@ export default async (
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       if (err) reject(err);
-      if (stats.hasErrors()) {
-        reject(new Error(stats.toJson().errors[0]));
+      if (stats) {
+        if (stats.hasErrors()) {
+          reject(new Error(stats.toJson().errors![0]!.message));
+        }
+        let html = 'not emitted';
+        try {
+          html = fs.readFileSync(
+            path.resolve(__dirname, 'index.html'),
+            'utf-8',
+          );
+        } catch (e) {}
+
+        const childCompilation = stats
+          .toJson()
+          .children?.find((c) => c.name?.startsWith('HtmlWebpackCompiler'));
+
+        resolve({
+          html,
+          source: String(childCompilation!.modules![0].source),
+        });
       }
-      let html = 'not emitted';
-      try {
-        html = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8');
-      } catch (e) {}
-
-      const childCompilation = stats
-        .toJson()
-        .children?.find((c) => c.name?.startsWith('HtmlWebpackCompiler'));
-
-      resolve({
-        html,
-        source: childCompilation!.modules![0].source,
-      });
     });
   });
 };
