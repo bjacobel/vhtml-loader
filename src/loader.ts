@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore-error the available loader-utils types depend on webpack 4
 import { stringifyRequest } from 'loader-utils';
 import { validate } from 'schema-utils';
