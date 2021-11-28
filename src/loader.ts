@@ -1,9 +1,12 @@
-import { getOptions, stringifyRequest } from 'loader-utils';
-import validateOptions from 'schema-utils';
+import { validate } from 'schema-utils';
 import { JSONSchema7 } from 'json-schema';
-import { loader as WebpackLoader } from 'webpack';
+import { LoaderContext } from 'webpack';
 import { transformAsync } from '@babel/core';
 import dedent from 'dedent';
+
+interface Options {
+  doctype?: boolean;
+}
 
 const schema: JSONSchema7 = {
   type: 'object',
@@ -19,16 +22,13 @@ const defaultOptions = {
   doctype: true,
 };
 
-export default async function (
-  this: WebpackLoader.LoaderContext,
-  source: string,
-) {
+export default async function (this: LoaderContext<Options>, source: string) {
   const callback = this.async()!;
-  const options = Object.assign({}, defaultOptions, getOptions(this));
+  const options = Object.assign({}, defaultOptions, this.getOptions(schema));
 
   this.cacheable && this.cacheable();
 
-  validateOptions(schema, options, {
+  validate(schema, options, {
     name: '@bjacobel/vhtml-loader',
   });
 
@@ -47,7 +47,12 @@ export default async function (
   });
 
   const doctype = options.doctype ? '<!DOCTYPE html>' : '';
-  const vhtmlSrc = stringifyRequest(this, require.resolve('@bjacobel/vhtml'));
+  const vhtmlSrc = JSON.stringify(
+    this.utils.contextify(
+      this.context || this.rootContext,
+      require.resolve('@bjacobel/vhtml'),
+    ),
+  );
 
   callback(
     null,
