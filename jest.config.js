@@ -7,7 +7,6 @@ module.exports = {
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
-  testRunner: 'jest-jasmine2',
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },

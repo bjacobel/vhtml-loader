@@ -56,12 +56,17 @@ export default async (
         } catch (e) {}
 
         const childCompilation = stats
-          .toJson()
+          .toJson({
+            source: true,
+          })
           .children?.find((c) => c.name?.startsWith('HtmlWebpackCompiler'));
 
         resolve({
           html,
-          source: String(childCompilation!.modules![0].source),
+          source: String(
+            childCompilation!.modules!.find((m) => m.name?.endsWith(template))!
+              .source,
+          ),
         });
       }
     });
