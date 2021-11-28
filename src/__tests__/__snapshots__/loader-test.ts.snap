@@ -3,51 +3,46 @@
 exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.options from the template 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      test
-    </title>
+    <title>test</title>
   </head>
+
 </html>
 `;
 
 exports[`vhtml-loader htmlwebpackplugin magic can handle a very complex case 1`] = `
 <!doctype html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1"
-    >
-    <link rel="preconnect"
-          href="https://www.google-analytics.com"
-    >
-    <title>
-      Webpack App
-    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <title>Webpack App</title>
   </head>
+  
   <body>
-    <div id="main">
-    </div>
+    <div id="main"></div>
     <script type="module">
       var script0 = document.createElement('script');
-          script0.type = 'text/javascript';
-          script0.src = 'bundle.js';
-          document.body.appendChild(script0);
+                script0.type = 'text/javascript';
+                script0.src = 'bundle.js';
+                document.body.appendChild(script0);
     </script>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader htmlwebpackplugin magic templates out files included by htmlwebpackplugin 1`] = `
 <!doctype html>
 <html>
+  
   <body>
-    <script type="text/javacript"
-            src="bundle.js"
-    >
-    </script>
+    <script type="text/javacript" src="bundle.js"></script>
   </body>
+
 </html>
 `;
 
@@ -71,245 +66,184 @@ exports.default = _default;
 exports[`vhtml-loader simple jsx compilation does not have unterminated string constant issues 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      unterminated string constant
-    </title>
-    <p>
-      planes trains automobiles
-    </p>
+    <title>unterminated string constant</title>
+    <p>planes trains automobiles</p>
   </head>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation doesn't prepend doctype if { doctype: false } 1`] = `
 <html>
+  
   <head>
-    <title>
-      no-jsx fixture
-    </title>
+    <title>no-jsx fixture</title>
   </head>
+  
   <body>
-    <h1>
-      an example
-    </h1>
+    <h1>an example</h1>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation escapes content written inside jsx functions correctly 1`] = `
 <!doctype html>
 <html>
+  
   <body>
-    <p>
-      vhtml &quot;will&quot; escape &apos;bad stuff&apos; &amp; that is good &amp; correct
-    </p>
-    <p>
-      this content "will" 'not' be escaped & that's ok
-    </p>
+    <p>vhtml &quot;will&quot; escape &apos;bad stuff&apos; &amp; that is good
+      &amp; correct</p>
+    <p>this content "will" 'not' be escaped & that's ok</p>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with a commonjs export 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      commonjs fixture
-    </title>
+    <title>commonjs fixture</title>
   </head>
+  
   <body>
-    <h1>
-      an example
-    </h1>
+    <h1>an example</h1>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with a props object spread 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      props spread fixture
-    </title>
+    <title>props spread fixture</title>
   </head>
+  
   <body>
-    <div class="big"
-         aria-live="false"
-    >
-    </div>
+    <div class="big" aria-live="false"></div>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx functions 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      looping fixture
-    </title>
+    <title>looping fixture</title>
   </head>
+  
   <body>
-    <p>
-      some of my favorite planets are:
-    </p>
+    <p>some of my favorite planets are:</p>
     <ul>
       <div key="0">
-        <h2>
-          mars
-        </h2>
-        <p>
-          it&apos;s planet #4 from the sun
-        </p>
-        <p>
-          according to my research it is
-        </p>
+        <h2>mars</h2>
+        <p>it&apos;s planet #4 from the sun</p>
+        <p>according to my research it is</p>
         <ul>
-          <li>
-            dusty
-          </li>
-          <li>
-            red
-          </li>
+          <li>dusty</li>
+          <li>red</li>
         </ul>
       </div>
       <div key="1">
-        <h2>
-          mercury
-        </h2>
-        <p>
-          it&apos;s planet #1 from the sun
-        </p>
-        <p>
-          according to my research it is
-        </p>
+        <h2>mercury</h2>
+        <p>it&apos;s planet #1 from the sun</p>
+        <p>according to my research it is</p>
         <ul>
-          <li>
-            rocky
-          </li>
-          <li>
-            hot
-          </li>
-          <li>
-            tiny
-          </li>
+          <li>rocky</li>
+          <li>hot</li>
+          <li>tiny</li>
         </ul>
       </div>
       <div key="2">
-        <h2>
-          neptune
-        </h2>
-        <p>
-          it&apos;s planet #7 from the sun
-        </p>
-        <p>
-          according to my research it is
-        </p>
+        <h2>neptune</h2>
+        <p>it&apos;s planet #7 from the sun</p>
+        <p>according to my research it is</p>
         <ul>
-          <li>
-            big
-          </li>
-          <li>
-            blue
-          </li>
-          <li>
-            gassy
-          </li>
+          <li>big</li>
+          <li>blue</li>
+          <li>gassy</li>
         </ul>
       </div>
       <div key="3">
-        <h2>
-          saturn
-        </h2>
-        <p>
-          it&apos;s planet #9 from the sun
-        </p>
-        <p>
-          according to my research it is
-        </p>
+        <h2>saturn</h2>
+        <p>it&apos;s planet #9 from the sun</p>
+        <p>according to my research it is</p>
         <ul>
-          <li>
-            ringed
-          </li>
+          <li>ringed</li>
         </ul>
       </div>
     </ul>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx interpolation 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      interpolation fixture
-    </title>
+    <title>interpolation fixture</title>
   </head>
+  
   <body>
-    <h1>
-      an example
-    </h1>
+    <h1>an example</h1>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with jsx loops 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      looping fixture
-    </title>
+    <title>looping fixture</title>
   </head>
+  
   <body>
-    <p>
-      some of my favorite planets are:
-    </p>
+    <p>some of my favorite planets are:</p>
     <ul>
-      <li key="0">
-        mars
-      </li>
-      <li key="1">
-        mercury
-      </li>
-      <li key="2">
-        neptune
-      </li>
-      <li key="3">
-        saturn
-      </li>
+      <li key="0">mars</li>
+      <li key="1">mercury</li>
+      <li key="2">neptune</li>
+      <li key="3">saturn</li>
     </ul>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with no jsx 1`] = `
 <!doctype html>
 <html>
+  
   <head>
-    <title>
-      no-jsx fixture
-    </title>
+    <title>no-jsx fixture</title>
   </head>
+  
   <body>
-    <h1>
-      an example
-    </h1>
+    <h1>an example</h1>
   </body>
+
 </html>
 `;
 
 exports[`vhtml-loader simple jsx compilation handles a file with react imported in scope 1`] = `
 <!doctype html>
 <html>
+  
   <body>
-    <h1>
-      2 + 2 is 4
-    </h1>
+    <h1>2 + 2 is 4</h1>
   </body>
+
 </html>
 `;

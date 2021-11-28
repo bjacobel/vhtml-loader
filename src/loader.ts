@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore-error the available loader-utils types depend on webpack 4
-import { stringifyRequest } from 'loader-utils';
 import { validate } from 'schema-utils';
 import { JSONSchema7 } from 'json-schema';
 import { LoaderContext } from 'webpack';
@@ -50,7 +47,12 @@ export default async function (this: LoaderContext<Options>, source: string) {
   });
 
   const doctype = options.doctype ? '<!DOCTYPE html>' : '';
-  const vhtmlSrc = stringifyRequest(this, require.resolve('@bjacobel/vhtml'));
+  const vhtmlSrc = JSON.stringify(
+    this.utils.contextify(
+      this.context || this.rootContext,
+      require.resolve('@bjacobel/vhtml'),
+    ),
+  );
 
   callback(
     null,
