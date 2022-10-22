@@ -1,7 +1,7 @@
 {
   "name": "@bjacobel/vhtml-loader",
   "author": "Brian Jacobel <brian@bjacobel.com> (https://bjacobel.com)",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "webpack loader for https://github.com/developit/vhtml",
   "scripts": {
     "test": "jest",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.7.0",
     "@babel/plugin-transform-react-jsx": "^7.7.0",
+    "@babel/plugin-transform-typescript": "^7.7.0",
     "@bjacobel/vhtml": "^2.2.0",
     "dedent": "^0.7.0",
     "schema-utils": "^4.0.0"

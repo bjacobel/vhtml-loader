@@ -1,6 +1,7 @@
 import compiler from '../utils/memFsCompiler';
 
-const fixtures = (f: string) => `../../fixtures/${f}.html.jsx`;
+const fixtures = (f: string, ext?: string) =>
+  `../../fixtures/${f}.html.${ext || 'jsx'}`;
 
 describe('vhtml-loader', () => {
   it('renders the module source', async () => {
@@ -60,6 +61,11 @@ describe('vhtml-loader', () => {
 
     it('does not have unterminated string constant issues', async () => {
       const { html } = await compiler(fixtures('simple/string-constant'));
+      expect(html).toMatchSnapshot();
+    });
+
+    it('handles an index.html.tsx file', async () => {
+      const { html } = await compiler(fixtures('simple/typescript', 'tsx'));
       expect(html).toMatchSnapshot();
     });
   });
