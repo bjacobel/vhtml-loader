@@ -64,8 +64,10 @@ describe('vhtml-loader', () => {
       expect(html).toMatchSnapshot();
     });
 
-    fit('handles an index.html.tsx file', async () => {
-      const { html } = await compiler(fixtures('simple/typescript', 'tsx'));
+    it('handles an index.html.tsx file with no TS syntax', async () => {
+      const { html } = await compiler(
+        fixtures('simple/typescript-no-types', 'tsx'),
+      );
       expect(html).toMatchSnapshot();
     });
   });

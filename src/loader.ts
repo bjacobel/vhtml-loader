@@ -37,7 +37,6 @@ export default async function (this: LoaderContext<Options>, source: string) {
     plugins: [
       require.resolve('./discardImports'),
       require.resolve('./fixNewlines'),
-      '@babel/plugin-transform-typescript',
       ['@babel/plugin-transform-react-jsx', { pragma: 'h', useBuiltIns: true }],
       [
         '@babel/plugin-transform-modules-commonjs',

@@ -241,18 +241,17 @@ exports[`vhtml-loader simple jsx compilation handles a file with react imported 
 </html>
 `;
 
-exports[`vhtml-loader simple jsx compilation handles an index.html.tsx file 1`] = `
-const props: Record
-<string , string>= { className: 'big', 'aria-live': 'false', }; export default (
-  <html>
-    
-    <head>
-      <title>props spread fixture with typescript</title>
-    </head>
-    
-    <body>
-      <div {...props}></div>
-    </body>
+exports[`vhtml-loader simple jsx compilation handles an index.html.tsx file with no TS syntax 1`] = `
+<!doctype html>
+<html>
   
-  </html>);</string>
+  <head>
+    <title>tsx fixture that uses no TS syntax</title>
+  </head>
+  
+  <body>
+    <h1>an example</h1>
+  </body>
+
+</html>
 `;
