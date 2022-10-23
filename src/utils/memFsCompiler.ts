@@ -21,7 +21,7 @@ export default async (
     module: {
       rules: [
         {
-          test: /\.html\.jsx$/,
+          test: /\.html\.[jt]sx$/,
           use: {
             loader: require.resolve('../loader.ts'),
             options: loaderOptions,
