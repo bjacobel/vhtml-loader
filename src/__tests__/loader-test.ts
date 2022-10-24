@@ -80,6 +80,16 @@ describe('vhtml-loader', () => {
       expect(html).toMatchSnapshot();
     });
 
+    it('can access htmlWebpackPlugin.options from a typescript template', async () => {
+      const { html } = await compiler(
+        fixtures('htmlwebpackplugin/typescript-options', 'tsx'),
+        {
+          title: 'test',
+        },
+      );
+      expect(html).toMatchSnapshot();
+    });
+
     it('templates out files included by htmlwebpackplugin', async () => {
       const { html } = await compiler(fixtures('htmlwebpackplugin/files'));
       expect(html).toMatchSnapshot();

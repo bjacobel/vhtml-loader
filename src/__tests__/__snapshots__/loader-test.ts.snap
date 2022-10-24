@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.options from a typescript template 1`] = `
+<!doctype html>
+<html>
+  
+  <head>
+    <title>test</title>
+  </head>
+
+</html>
+`;
+
 exports[`vhtml-loader htmlwebpackplugin magic can access htmlWebpackPlugin.options from the template 1`] = `
 <!doctype html>
 <html>
