@@ -22,7 +22,7 @@
     "@babel/plugin-transform-react-jsx": "^7.7.0",
     "@babel/plugin-transform-typescript": "^7.19.3",
     "@bjacobel/vhtml": "^2.2.0",
-    "dedent": "^0.7.0",
+    "dedent": "^1.0.0",
     "schema-utils": "^4.0.0"
   },
   "devDependencies": {
