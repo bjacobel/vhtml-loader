@@ -4,7 +4,7 @@ import { LoaderContext } from 'webpack';
 import { BabelFileResult, transformAsync } from '@babel/core';
 import dedent from 'dedent';
 
-interface Options {
+export interface LoaderOptions {
   doctype?: boolean;
 }
 
@@ -22,7 +22,10 @@ const defaultOptions = {
   doctype: true,
 };
 
-export default async function (this: LoaderContext<Options>, source: string) {
+export default async function (
+  this: LoaderContext<LoaderOptions>,
+  source: string,
+) {
   const callback = this.async()!;
   const options = Object.assign({}, defaultOptions, this.getOptions(schema));
 

@@ -1,14 +1,15 @@
 import path from 'path';
 import webpack from 'webpack';
 import MemoryFS from 'memory-fs';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+import HTMLWebpackPlugin, { Options } from 'html-webpack-plugin';
+import { LoaderOptions } from '../loader';
 
 // Borrowed and modified from https://webpack.js.org/contribute/writing-a-loader/#testing
 
 export default async (
   template: string,
-  htmlWebpackPluginOpts?: any,
-  loaderOptions?: any,
+  htmlWebpackPluginOpts?: Options,
+  loaderOptions?: LoaderOptions,
 ): Promise<{ html?: string; source: string | undefined }> => {
   const fs = new MemoryFS();
   const compiler = webpack({
