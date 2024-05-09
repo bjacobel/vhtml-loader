@@ -61,9 +61,9 @@ exports[`vhtml-loader renders the module source 1`] = `
 "use strict"; var h = require("../../node_modules/vhtml/dist/vhtml.js");
 module.exports = function(data) { var htmlWebpackPlugin = data.htmlWebpackPlugin;
 Object.defineProperty(exports, "__esModule", { value: true }); exports.default
-= void 0; var _default = h("html", null, h("head", null, h("title", null,
-"no-jsx fixture")), h("body", null, h("h1", null, "an example"))); exports.default
-= _default; return "
+= void 0; var _default = exports.default = h("html", null, h("head", null,
+h("title", null, "no-jsx fixture")), h("body", null, h("h1", null, "an
+example"))); return "
 <!DOCTYPE html>" + (exports.default || module.exports); }
 `;
 
