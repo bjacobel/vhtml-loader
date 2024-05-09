@@ -9,7 +9,7 @@
   "labels": ["dependencies"],
   "packageRules": [
     {
-      "packagePatterns": ["^jest"],
+      "packagePatterns": ["^@?jest", "ts-jest"],
       "groupName": "Jest packages"
     }
   ]
