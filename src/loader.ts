@@ -65,7 +65,7 @@ export default async function (
   const vhtmlSrc = JSON.stringify(
     this.utils.contextify(
       this.context || this.rootContext,
-      require.resolve('@bjacobel/vhtml'),
+      require.resolve('vhtml'),
     ),
   );
 
