@@ -759,10 +759,12 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/dedent@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@types/dedent/-/dedent-0.7.0.tgz#155f339ca404e6dd90b9ce46a3f78fd69ca9b050"
-  integrity sha512-EGlKlgMhnLt/cM4DbUSafFdrkeJoC9Mvnj0PUCU7tFmTjMjNRT957kXCx0wYm3JuEq4o4ZsS5vG+NlkM2DMd2A==
+"@types/dedent@^1.0.0":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/dedent/-/dedent-1.7.2.tgz#d3b7b35b737e4a2fd2c391676b8fb571e36e1440"
+  integrity sha512-iSPTrLlAygLy7ivCyumME9eHkXb/yFZh4BN8nnOQrhixed8aUGgwNESEwe+zTg9wwBS1AMoOrk17YSy5kIN0hw==
+  dependencies:
+    dedent "*"
 
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"
@@ -1537,6 +1539,11 @@ debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4:
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
+
+dedent@*:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/dedent/-/dedent-1.7.2.tgz#34e2264ab538301e27cf7b07bf2369c19baa8dd9"
+  integrity sha512-WzMx3mW98SN+zn3hgemf4OzdmyNhhhKz5Ay0pUfQiMQ3e1g+xmTJWp/pKdwKVXhdSkAEGIIzqeuWrL3mV/AXbA==
 
 dedent@^1.0.0:
   version "1.0.1"
