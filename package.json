@@ -18,16 +18,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
-    "@babel/plugin-transform-react-jsx": "^7.23.4",
-    "@babel/plugin-transform-typescript": "^7.24.5",
+    "@babel/plugin-transform-modules-commonjs": "^8.0.0",
+    "@babel/plugin-transform-react-jsx": "^8.0.0",
+    "@babel/plugin-transform-typescript": "^8.0.0",
     "dedent": "^1.0.0",
     "schema-utils": "^4.0.0",
     "vhtml": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
-    "@babel/helper-plugin-utils": "^7.24.5",
+    "@babel/helper-plugin-utils": "^8.0.0",
     "@types/dedent": "^0.7.0",
     "@types/jest": "^29.0.0",
     "@types/memory-fs": "^0.3.2",
@@ -46,7 +46,7 @@
     "webpack": "^5.64.4"
   },
   "peerDependencies": {
-    "@babel/core": "^7.24.5",
+    "@babel/core": "^8.0.0",
     "webpack": "^5.0.0"
   }
 }
